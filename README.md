@@ -1,2 +1,2 @@
 # Plant-size-detection
-Detect plant size in an image using marker
+measuring the size of the plant in an image
