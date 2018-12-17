@@ -2,7 +2,6 @@
 import cv2
 import numpy as np
 import core 
-from matplotlib import pyplot as plt
 from imutils import perspective
 from scipy.spatial import distance as dist
 
@@ -21,7 +20,7 @@ lab = cv2.cvtColor(img_whitebalance, cv2.COLOR_BGR2Lab)
 light ,green, blue = cv2.split(lab)
 
 
-ret, image_binary = cv2.threshold(green, 110, 255, cv2.THRESH_BINARY_INV)
+ret, image_binary = cv2.threshold(green, 110, 255, cv2.THRESH_BINARY_INV)	
 
 
 mask = np.copy(image_binary)
@@ -41,9 +40,6 @@ object_id, obj_hierarchy = cv2.findContours(dilated, cv2.RETR_TREE, cv2.CHAIN_AP
 
 for i, cnt in enumerate(object_id):
     cv2.drawContours(ori_img, object_id, i, (255, 102, 255), -1, lineType=8, hierarchy=obj_hierarchy)
-
-
-
 
 
 
@@ -131,4 +127,5 @@ for n,c in enumerate(contour_list):
     
 
 cv2.imshow("contour_inage", orig)
+cv2.waitKey()
 
